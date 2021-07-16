@@ -23,12 +23,16 @@ length = len(delete_files)
 
 if length == 0:
   print("No duplicate files")
+  system("pause")
+  sys.exit()
 elif length == 1:
   print("Duplicate file: "+delete_files[0]+"\nAre you sure to delete it?")
 else:
-  print("Duplicate files: "+"".join(delete_files)+"\nAre you sure to delete them?")
+  print("Duplicate files: "+", ".join(delete_files)+"\nAre you sure to delete them?")
 
-system("pause")
-
-for i in delete_files:
-  remove(i)
+answer = input().lower()
+if answer in {"yes","y","si","ja","da",""}:
+  for i in delete_files:
+    remove(i)
+  print("√ success!")
+  system("pause")
