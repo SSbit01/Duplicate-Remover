@@ -1,9 +1,10 @@
+import sys
 from os import *
 from filecmp import *
 
 all_files = sorted(listdir())
 
-this_file = path.basename(__file__)
+this_file = path.basename(sys.argv[0])
 all_files.remove(this_file)
 
 dont_delete = [this_file]
